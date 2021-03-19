@@ -1,0 +1,268 @@
+
+\documentclass[a4paper,10pt]{report}
+\usepackage{blindtext} % for dummy texts
+\usepackage[T1]{fontenc}
+\usepackage[table]{xcolor}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage[inkscapepath=../assets/svg]{svg}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{fancyvrb}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\hypersetup{
+   colorlinks=true,
+   linkcolor=blue,
+   urlcolor=cyan
+}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage[sc]{mathpazo}
+\linespread{1.05}
+\usepackage{microtype}
+\usepackage{breqn}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[
+   backend=bibtex,%
+   bibencoding=utf8,%
+   language=english,%
+   style=numeric-comp,%
+   sorting=nyt,%
+   maxbibnames=10,%
+   natbib=true%
+]{biblatex}
+\addbibresource{references.bib}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{geometry}
+\usepackage{multirow}
+\graphicspath{ {img/} }
+
+\newgeometry{hmargin={30mm,30mm}}
+
+% Set TOC depth and sections numbering
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+% Remove chapters head and reduce spacing
+\titleformat{\chapter}[hang]{\Large\bfseries}{\thechapter \hspace{2ex}}{0pt}{\Large}
+\titlespacing{\chapter}{0cm}{0cm}{0.5cm}
+\usepackage[parfill]{parskip}
+
+% Make quotes italic
+\renewcommand{\mkbegdispquote}[2]{\itshape}
+
+% Change texttt line breaks
+\renewcommand{\texttt}[1]{%
+  \begingroup
+  \ttfamily
+  \begingroup\lccode`~=`.\lowercase{\endgroup\def~}{.\discretionary{}{}{}}%
+  \catcode`/=\active\catcode`[=\active\catcode`.=\active
+  \scantokens{#1\noexpand}%
+  \endgroup
+}
+
+
+\begin{document}
+\frenchspacing
+
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+\title{
+  {{\large{\textsc{Alma Mater Studiorum $\cdot$ University of Bologna}}}}
+  \rule{\textwidth}{0.4pt}\vspace{3mm}
+  \textbf{Title\footnote{The code for the project is publicly available on \href{https://github.com/}{GitHub}}}
+  \begin{figure}[!htb]
+    \centering
+    \includegraphics[width = 100pt]{lorem}
+  \end{figure} \\
+  Course Name
+}
+
+\author{ Name Surname (\href{mailto:name.surname@studio.unibo.it}{name.surname@studio.unibo.it}) \\ Name Surname (\href{mailto:name.surname@studio.unibo.it}{name.surname@studio.unibo.it}) \\ Name Surname (\href{mailto:name.surname@studio.unibo.it}{name.surname@studio.unibo.it})}
+\date{\today}
+\maketitle
+\newpage
+\tableofcontents
+\setcounter{tocdepth}{1}
+%\listoffigures
+%\listoftables
+\newpage
+%----------------------------------------------------------------------------------------
+
+
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+\chapter{Summary}\label{chap:introduction}
+
+ \begin{displayquote}Everything should be made as simple as possible, but no simpler.\end{displayquote}
+
+\blindtext % Dummy text
+%----------------------------------------------------------------------------------------
+
+
+
+%----------------------------------------------------------------------------------------
+%	BACKGROUND
+%----------------------------------------------------------------------------------------
+\chapter{Background}\label{chap:background}
+
+Click \href{https://github.com/}{here}.
+\blindtext % Dummy text
+%----------------------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 3
+%----------------------------------------------------------------------------------------
+\chapter{Chapter 3}\label{chap:chapter-3}
+
+List:
+\begin{itemize}
+  \item Item1
+  \item Item2
+\end{itemize}
+
+See referement \ref{sec:background}.
+
+%----------------------------------------------------------------------------------------
+
+\section{Section-31}\label{sec:sec-31}
+\subsection{Subsection-311}\label{subsec:subsection-311}
+
+List:
+\begin{enumerate}
+  \item Item1
+  \item Item2
+\end{enumerate}
+
+\subsection{Subsection-312}\label{subsec:subsection-312}
+
+Single citation \cite{knuth74}. 
+Multiple citation \cite{knuth92,lamport94}.
+
+\blindtext % Dummy text
+
+\begin{figure}[h]
+  \center
+  \includegraphics[width=0.85\linewidth]{lorem}
+  \caption{Lorem Ipsum}
+  \label{fig:{lorem}}
+\end{figure}
+
+%----------------------------------------------------------------------------------------
+
+\section{Section-32}\label{sec:section-32}
+\subsection{Subsection-321}\label{subsec:subsection-321}
+
+\blindtext % Dummy text
+
+
+\subsection{Subsection-322}\label{subsec:subsection-322}
+
+\blindtext % Dummy text
+
+
+\subsection{Subsection-323}\label{subsec:subsection-323}
+
+\blindtext % Dummy text
+
+
+\section{Subsection-324}\label{sec:subsection-324}
+
+\blindtext % Dummy text
+%----------------------------------------------------------------------------------------
+
+
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 4
+%----------------------------------------------------------------------------------------
+\chapter{Chapter-4}\label{chap:chapter-4}
+\section{Section-41}\label{sec:section-41}
+
+\blindtext % Dummy text
+
+
+
+\section{Section-42}\label{sec:section-42}
+
+\blindtext % Dummy text
+
+
+
+\section{Section-43}\label{sec:section-43}
+$G=\{[g_s^{(0)},g_e^{(0)}], \dots, [g_s^{(n)},g_e^{(n)}]\}$
+\blindtext % Dummy text
+
+
+
+
+\section{Results}\label{sec:results}
+Table \ref{table:results} shows the best results obtained.
+
+\begin{table}[h]
+  \center
+  \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline
+    \multirow{2}{*}{}   & \multicolumn{2}{c|}{\textbf{Training}} & \multicolumn{2}{c|}{\textbf{Validation}} & \multicolumn{2}{c|}{\textbf{Test}}                                                          \\ \cline{2-7}
+                        & \textbf{F1} (\%) & \textbf{EM} (\%) & \textbf{F1} (\%) & \textbf{EM} (\%) & \textbf{F1} (\%) & \textbf{EM} (\%) \\ \hline
+    \textbf{R1}   & $36.21$ & $21.27$ & $37.19$ & $26.47$ & $38.30$ & $27.15$ \\ \hline
+    \textbf{R2}      & $63.42$ & $43.27$ & $68.40$ & $55.31$ & $71.15$ & $60.09$ \\ \hline
+    \textbf{R3}       & $73.68$ & $56.14$ & $80.28$ & $67.80$ & $83.17$ & $74.17$ \\ \hline
+    \textbf{R4} & $73.72$ & $55.95$ & $79.26$ & $66.97$ & $82.44$ & $73.64$ \\ \hline
+    \textbf{R5}    & \textbf{76.42} & \textbf{58.89} & \textbf{84.45} & \textbf{71.83} & \textbf{88.27} & \textbf{80.60} \\ \hline
+  \end{tabular}
+  \caption{Best results}
+  \label{table:results}
+\end{table}
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 5
+%----------------------------------------------------------------------------------------
+\chapter{Chapter-5}\label{chap:chapter-5}
+
+\begin{longtable}{m{0.30\linewidth}|m{0.6\linewidth}}
+  \textbf{Title} & \textbf{Example} \\ \hline \endhead
+  Lorem ipsum dolor sit amet, consectetur adipisci elit. \newline \small{( Sed do eiusmod tempor incidunt ut labore et dolore magna aliqua.)} & \textbf{Context}: \blindtext \newline
+  \textbf{Question}: Question1 \newline
+  \textbf{Answers}: Answer1 \newline
+  \textbf{Result}: Result1 \\ \hline
+Lorem ipsum dolor sit amet, consectetur adipisci elit. \newline \small{( Sed do eiusmod tempor incidunt ut labore et dolore magna aliqua.)} & \textbf{Context}: \blindtext \newline
+  \textbf{Question}: Question2 \newline
+  \textbf{Answers}: Answer2 \newline
+  \textbf{Result}: Result2 \\ \hline
+  \label{table:errors}
+\end{longtable}
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 6
+%----------------------------------------------------------------------------------------
+\chapter{Discussion}\label{chap:discussion}
+
+\blindtext
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	REFERENCES
+%----------------------------------------------------------------------------------------
+\printbibliography
+\end{document}
